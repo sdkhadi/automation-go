@@ -1,0 +1,14 @@
+/**
+ * @author sdkhadi
+ * @email sdkhadiwijaya@gmail.com
+ * @create date 2021-08-07 19:26:30
+ * @modify date 2021-08-07 19:26:30
+ * @desc [description]
+ */
+
+browserName=chrome/firefox/opera
+browserVersion=80.0
+enableVNC=true
+enableVideo=true
+videoName=feature.mp4
+name=Regression-feature-v1
