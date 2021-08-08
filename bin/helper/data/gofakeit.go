@@ -1,4 +1,4 @@
-package generator
+package data
 
 import "github.com/brianvoe/gofakeit"
 

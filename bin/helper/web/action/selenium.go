@@ -8,13 +8,13 @@
 package webaction
 
 import (
-	"github.com/automation-go/bin/helper"
+	"github.com/automation-go/bin/helper/common"
 	"github.com/tebeka/selenium"
 )
 
 func (s Page) SendKeys(locator string, text string) error {
-	element, err := s.driver().FindElement(selenium.ByCSSSelector, locator)
-	helper.LogPanicln(err)
+	element, err := s.driver().FindElement(selenium.ByID, locator)
+	common.LogPanicln(err)
 
 	return element.SendKeys(text)
 }
