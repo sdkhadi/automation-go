@@ -72,8 +72,7 @@ func main() {
 	elem, err = webDriver.FindElement(selenium.ByID, "btn-login")
 	elem.Click()
 	if err != nil {
-		fmt.Printf("Failed to find element: %s\n", err)
+		fmt.Printf("Failed to click button: %s\n", err)
 		return
 	}
-
 }
