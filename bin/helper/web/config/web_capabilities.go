@@ -1,4 +1,4 @@
-package webaction
+package webconfig
 
 import (
 	"os"

@@ -1,5 +1,5 @@
 docker-clean:	
-	@docker container rm $$(docker ps -aq) -f	
+	@docker rm -f $$(docker ps -aq)
 	@echo "Docker successfully removed"	
 
 pull-chrome:
@@ -9,7 +9,7 @@ pull-firefox:
 	@docker pull selenoid/firefox:90.0
 	@echo "Image chrome successfully pull"
 
-selenoid-run:
+selenoid-hub:
 	@docker run -d --name selenoid -p 4444:4444 -v /var/run/docker.sock:/var/run/docker.sock -v ${PWD}:/etc/selenoid/:ro aerokube/selenoid:latest-release
 	@echo "Docker selenium-hub is running"
 
