@@ -1,3 +1,10 @@
+/**
+ * @author sdkhadi
+ * @email sdkhadiwijaya@gmail.com
+ * @create date 2021-08-09 00:06:07
+ * @modify date 2021-08-09 00:06:07
+ * @desc [description]
+ */
 package webconfig
 
 import (
