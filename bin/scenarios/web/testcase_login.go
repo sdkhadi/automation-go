@@ -13,7 +13,7 @@ import (
 )
 
 func UserLogin() error {
-	login := webpages.LoginPage{Page: utils.MobileWeb}
+	login := webpages.LoginPage{Page: utils.Web}
 
 	login.InputUsername().
 		InputPassword().
