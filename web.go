@@ -23,7 +23,7 @@ func main() {
 	}
 	var webDriver selenium.WebDriver
 	var err error
-	caps := selenium.Capabilities(map[string]interface{}{"browserName": "chrome", "browserVersion": "87.0", "enableVNC": true, "enableVideo": true, "name": "Golang Automation", "videoName": "golang-test.mp4"})
+	caps := selenium.Capabilities(map[string]interface{}{"browserName": "chrome", "browserVersion": "90.0", "enableVNC": true, "enableVideo": false, "name": "Golang Automation", "videoName": "golang-test.mp4"})
 	if webDriver, err = selenium.NewRemote(caps, os.Getenv("SELENIUM_URL")); err != nil {
 		fmt.Printf("Failed to open session: %s\n", err)
 		return
