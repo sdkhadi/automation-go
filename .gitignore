@@ -3,7 +3,6 @@
 *.env
 *.idea
 *.iml
-*.json
 capabilities*.properties
 *.vscode
 golang*.html
