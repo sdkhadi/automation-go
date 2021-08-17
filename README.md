@@ -13,3 +13,10 @@ make pull-firefox
 make selenoid-hub
 make selenoid-ui
 ```
+
+## Example Run Test
+
+```bash
+$ go test -test.run=TestPageCura
+```
+## Codebase Structure (Coming Soon)
