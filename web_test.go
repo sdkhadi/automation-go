@@ -5,7 +5,7 @@
  * @modify date 2021-08-09 00:06:29
  * @desc [description]
  */
-package main
+package main_test
 
 import (
 	"fmt"
@@ -16,13 +16,14 @@ import (
 	"github.com/tebeka/selenium"
 )
 
-func main() {
+func Example() {
 	errror := godotenv.Load()
 	if errror != nil {
 		log.Fatal("Error loading .env file")
 	}
 	var webDriver selenium.WebDriver
 	var err error
+	selenium.SetDebug(true)
 	caps := selenium.Capabilities(map[string]interface{}{"browserName": "chrome", "browserVersion": "90.0", "enableVNC": true, "enableVideo": false, "name": "Golang Automation", "videoName": "golang-test.mp4"})
 	if webDriver, err = selenium.NewRemote(caps, os.Getenv("SELENIUM_URL")); err != nil {
 		fmt.Printf("Failed to open session: %s\n", err)
@@ -82,4 +83,6 @@ func main() {
 		fmt.Printf("Failed to click button: %s\n", err)
 		return
 	}
+	//  Output:
+	// Page title: CURA Healthcare Service
 }

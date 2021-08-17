@@ -16,3 +16,6 @@ func init() {
 	env := godotenv.Load()
 	common.LogPanicln(env)
 }
+func main() {
+
+}
