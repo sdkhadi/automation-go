@@ -11,12 +11,13 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"testing"
 
 	"github.com/joho/godotenv"
 	"github.com/tebeka/selenium"
 )
 
-func Example() {
+func TestPageCura(t *testing.T) {
 	errror := godotenv.Load()
 	if errror != nil {
 		log.Fatal("Error loading .env file")
@@ -26,14 +27,14 @@ func Example() {
 	selenium.SetDebug(true)
 	caps := selenium.Capabilities(map[string]interface{}{"browserName": "chrome", "browserVersion": "90.0", "enableVNC": true, "enableVideo": false, "name": "Golang Automation", "videoName": "golang-test.mp4"})
 	if webDriver, err = selenium.NewRemote(caps, os.Getenv("SELENIUM_URL")); err != nil {
-		fmt.Printf("Failed to open session: %s\n", err)
+		t.Fatalf("Failed to open session: %s\n", err)
 		return
 	}
 	defer webDriver.Quit()
 
 	err = webDriver.Get("https://katalon-demo-cura.herokuapp.com/")
 	if err != nil {
-		fmt.Printf("Failed to load page: %s\n", err)
+		t.Fatalf("Failed to load page: %s\n", err)
 		return
 	}
 
@@ -47,13 +48,13 @@ func Example() {
 	err = webDriver.MaximizeWindow("")
 	if err != nil {
 		if err != nil {
-			fmt.Printf("Failed to maximize window: %s\n", err)
+			t.Fatalf("Failed to maximize window: %s\n", err)
 			return
 		}
 	}
 	err = webDriver.SetImplicitWaitTimeout(30)
 	if err != nil {
-		fmt.Printf("Failed to load page: %s\n", err)
+		t.Fatalf("Failed to load page: %s\n", err)
 		return
 	}
 	var elem selenium.WebElement
@@ -61,26 +62,26 @@ func Example() {
 	elem, err = webDriver.FindElement(selenium.ByID, "btn-make-appointment")
 	elem.Click()
 	if err != nil {
-		fmt.Printf("Failed to find element: %s\n", err)
+		t.Fatalf("Failed to find element: %s\n", err)
 		return
 	}
 
 	elem, err = webDriver.FindElement(selenium.ByID, "txt-username")
 	elem.SendKeys("John Doe")
 	if err != nil {
-		fmt.Printf("Failed to find element: %s\n", err)
+		t.Fatalf("Failed to find element: %s\n", err)
 		return
 	}
 	elem, err = webDriver.FindElement(selenium.ByID, "txt-password")
 	elem.SendKeys("ThisIsNotAPassword")
 	if err != nil {
-		fmt.Printf("Failed to find element: %s\n", err)
+		t.Fatalf("Failed to find element: %s\n", err)
 		return
 	}
 	elem, err = webDriver.FindElement(selenium.ByID, "btn-login")
 	elem.Click()
 	if err != nil {
-		fmt.Printf("Failed to click button: %s\n", err)
+		t.Fatalf("Failed to click button: %s\n", err)
 		return
 	}
 	//  Output:
